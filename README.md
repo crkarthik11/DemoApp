@@ -30,6 +30,8 @@ $ curl -v localhost:8080
  - String department
  - String  username
  - String  password
+ - String gender
+ - String IdNumber
 
 ## APIs 
 
