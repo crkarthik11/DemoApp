@@ -2,17 +2,41 @@ package com.thinkxfactor.demoApp.entity;
 
 import org.springframework.stereotype.Component;
 
-@Component
-public class Student {
-    private String IdNumber;
-    private String name;
-    private String department;
-    private String userName;
-    private String password;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "tbl_student")
+public class Student {
+    @Id
+    @GeneratedValue
+    @Column(name = "student_id")
+    private Long id;
+
+    @Column(name = "id_number")
+    private String IdNumber;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "department")
+    private String department;
+
+    @Column(name = "user_name")
+    private String userName;
+
+    @Column(name = "password")
+    private String password;
 
     public Student() {
         System.out.println("Student created");
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getIdNumber() {
