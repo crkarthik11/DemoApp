@@ -1,30 +1,45 @@
 package com.thinkxfactor.demoApp.controllers;
 
 import com.thinkxfactor.demoApp.entity.Admin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.thinkxfactor.demoApp.repository.AdminRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/admin")
 public class AdminController{
 
-    @GetMapping("/hello")
-    public String helloAdmin() {
-        return "Hello World";
+    @Autowired
+    AdminRepository adminRepository;
+    
+    @GetMapping("/getAdmin")
+    public Admin helloAdmin(@RequestParam Long id) {
+        Optional<Admin> byId = adminRepository.findById(id);
+        return byId.get();
     }
 
-    @GetMapping("/hello2")
-    public List<Admin> hello(@RequestParam("name") String name){
-        Admin admin = new Admin(name);
-        java.util.List adminList =  new ArrayList();
-        adminList.add(admin);
-        return adminList;
+    @PostMapping("/add")
+    public Admin addAdmin(@RequestBody Admin admin){
+        Admin persistedAdmin = adminRepository.saveAndFlush(admin);
+        return persistedAdmin;
     }
+
+
+
+
+
+
+
+
+//    @PostMapping("/add")
+//    public Admin addUser(@RequestBody Admin admin) {
+//
+//        return admin;
+//    }
 }
