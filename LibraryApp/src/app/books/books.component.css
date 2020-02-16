@@ -1,0 +1,18 @@
+table {
+    width: 100%;
+    text-align: left;
+    background: #EEE;
+    border-collapse: collapse;
+  }
+  table tr,
+  table td,
+  table th {
+    margin: 0;
+    border:0; 
+    padding:6px;
+  }
+  table thead {
+    background: darkblue;
+    color: white;
+  }
+  

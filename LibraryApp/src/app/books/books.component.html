@@ -1,0 +1,20 @@
+<table>
+    <thead>
+      <tr>
+        <th>Book ID</th>
+        <th>Book Name</th>
+        <th>Author</th>
+        <th>ISBN</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of myBooks">
+        <td class="left">{{ row.id }}</td>
+        <td class="number1">{{ row.author }}</td>
+        <td class="table1">{{ row.name }}</td>
+        <td class="right-bill">{{ row.category }}</td>
+        <td class="right-bill">{{ row.isbn }}</td>
+    </tr>
+    </tbody>
+  </table>
