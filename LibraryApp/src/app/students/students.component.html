@@ -1,1 +1,18 @@
-<p>students works!</p>
+<table>
+  <thead>
+  <tr>
+    <th>Student ID</th>
+    <th>Student Name</th>
+    <th>Username</th>
+    <th>Password</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of myStudents">
+    <td class="left">{{ row.id }}</td>
+    <td class="number1">{{ row.name }}</td>
+    <td class="table1">{{ row.username }}</td>
+    <td class="right-bill">{{ row.password }}</td>
+  </tr>
+  </tbody>
+</table>
